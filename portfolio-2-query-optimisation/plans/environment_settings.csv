@@ -1,0 +1,8 @@
+"name","setting","unit"
+"block_size","8192",NULL
+"cpu_tuple_cost","0.01",NULL
+"random_page_cost","4",NULL
+"seq_page_cost","1",NULL
+"shared_buffers","16384","8kB"
+"TimeZone","Africa/Lagos",NULL
+"work_mem","4096","kB"
