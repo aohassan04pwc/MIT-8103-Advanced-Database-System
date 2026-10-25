@@ -1,8 +1,0 @@
-"test","passed","detail"
-"APPLIED_ONCE",True,"Two calls moved only 25"
-"COMMIT",True,"Committed reallocation request remains saved"
-"FAILURE_ATOMICITY",True,"Failed operation leaves no request or allocation change"
-"IDEMPOTENCY",True,"Identical retry returns same request id"
-"KEY_PAYLOAD_CHECK",True,"Changed amount rejected"
-"ROLLBACK",True,"Request and allocation changes undone"
-"SAVEPOINT",True,"First 10 retained; second 20 undone"

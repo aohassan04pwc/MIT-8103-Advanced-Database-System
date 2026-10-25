@@ -1,3 +1,0 @@
-variant,successful_transactions,failed_transactions,deadlock_failures,average_latency_ms,tps
-ordered,70214,0,0,3.38,2364.680522
-unordered,384,37,37,275.216,12.354269
