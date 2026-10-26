@@ -1,0 +1,2185 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Install the latest PowerShell for new features and improvements! https://aka.ms/PSWindows
+
+PS C:\Users\USER> mongosh --version
+2.14.0
+PS C:\Users\USER> mongosh "mongodb+srv://adsmivaaz.bnh1svl.mongodb.net/" --apiVersion 1 --username aohassan04_db_user
+Enter password: *********
+Current Mongosh Log ID: 6adfa0351a138a6c8131f4ba
+Connecting to:          mongodb+srv://<credentials>@adsmivaaz.bnh1svl.mongodb.net/?appName=mongosh+2.14.0
+MongoServerError: bad auth : authentication failed
+PS C:\Users\USER>
+PS C:\Users\USER>  mongosh "mongodb+srv://adsmivaaz.bnh1svl.mongodb.net/" --apiVersion 1 --username aohassan04_db_user
+Enter password: *************
+Current Mongosh Log ID: 6adfa124fc00ea68fdba6b39
+Connecting to:          mongodb+srv://<credentials>@adsmivaaz.bnh1svl.mongodb.net/?appName=mongosh+2.14.0
+MongoServerError: bad auth : authentication failed
+PS C:\Users\USER>
+PS C:\Users\USER>  mongosh "mongodb+srv://adsmivaaz.bnh1svl.mongodb.net/" --apiVersion 1 --username aohassan04_db_user
+Enter password: *********
+Current Mongosh Log ID: 6adfa140f90669a2897b1659
+Connecting to:          mongodb+srv://<credentials>@adsmivaaz.bnh1svl.mongodb.net/?appName=mongosh+2.14.0
+MongoServerError: bad auth : authentication failed
+PS C:\Users\USER> 1
+1
+PS C:\Users\USER> mongosh "mongodb+srv://adsmivaaz.bnh1svl.mongodb.net/" --apiVersion 1 --username aohassan04_db_user
+Enter password: *********
+Current Mongosh Log ID: 6adfa78fae4cddaefe9cdb0f
+Connecting to:          mongodb+srv://<credentials>@adsmivaaz.bnh1svl.mongodb.net/?appName=mongosh+2.14.0
+Using MongoDB:          8.0.34 (API Version 1)
+Using Mongosh:          2.14.0
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+
+To help improve our products, pseudo-anonymous usage data is collected from interactive and agentic sessions only, and sent to MongoDB periodically (https://www.mongodb.com/legal/privacy-policy).
+You can opt-out by running the disableTelemetry() command.
+
+Atlas atlas-wnjnv7-shard-0 [primary] test>
+
+Atlas atlas-wnjnv7-shard-0 [primary] test>
+
+Atlas atlas-wnjnv7-shard-0 [primary] test> use lendbride_nosql
+switched to db lendbride_nosql
+Atlas atlas-wnjnv7-shard-0 [primary] lendbride_nosql> db.runCommand({ ping: 1})
+{ ok: 1 }
+Atlas atlas-wnjnv7-shard-0 [primary] lendbride_nosql> db.getName()
+lendbride_nosql
+Atlas atlas-wnjnv7-shard-0 [primary] lendbride_nosql> show collections
+
+Atlas atlas-wnjnv7-shard-0 [primary] lendbride_nosql> load("C:/Users/USER/Downloads/ADM Project/portfolio-4-nosql/01_schema_validation.js")
+PASS: KYC profile rejected with code 121
+PASS: audit event rejected with code 121
+PASS: login session rejected with code 121
+[
+  'login_sessions',
+  'audit_events',
+  'kyc_profiles'
+]
+Validators check types and structure, not PostgreSQL foreign keys or KYC truth.
+true
+Atlas atlas-wnjnv7-shard-0 [primary] lendbride_nosql> load("C:/Users/USER/Downloads/ADM Project/portfolio-4-nosql/02_seed_data.js")
+
+{
+  seed: 810304,
+  analytical_anchor: ISODate('2026-10-26T00:00:00.000Z'),
+  source: 'lb_bench.borrowers',
+  kyc_profiles: 5000,
+  audit_events: 100000
+}
+[
+  {
+    _id: 'APPLICATION_SUBMITTED',
+    count: 19987
+  },
+  {
+    _id: 'FRAUD_FLAG',
+    count: 20094
+  },
+  {
+    _id: 'KYC_SUBMITTED',
+    count: 20091
+  },
+  {
+    _id: 'LOGIN_FAILED',
+    count: 19889
+  },
+  {
+    _id: 'LOGIN_SUCCESS',
+    count: 19939
+  }
+]
+{
+  _id: ObjectId('6adfadabae4cddaefe9d0223'),
+  borrower_id: 2,
+  business_name: 'Synthetic MSME 2',
+  profile_tier: 3,
+  status: 'REJECTED',
+  documents: [
+    {
+      type: 'BVN',
+      reference: 'SYNTHETIC-BVN-2',
+      status: 'REJECTED'
+    },
+    {
+      type: 'CAC_CERT',
+      reference: 'SYNTHETIC-CAC-2',
+      status: 'REJECTED'
+    },
+    {
+      type: 'PASSPORT',
+      reference: 'SYNTHETIC-PASSPORT-2',
+Atlas atlas-wnjnv7-shard-0 [primary] lendbride_nosql>
+      expires_at: ISODate('2026-11-27T00:00:00.000Z')
+    }
+  ],
+  created_at: ISODate('2026-07-28T00:00:00.000Z'),
+  source_ref: {
+    database: 'lendbridge_db',
+    schema: 'lb_bench',
+    table: 'borrowers'
+  },
+  schema_version: 1,
+  risk_notes: 'Synthetic enhanced review example'
+}
+{
+  _id: ObjectId('6adfadabae4cddaefe9d0224'),
+  borrower_id: 3,
+  business_name: 'Synthetic MSME 3',
+  profile_tier: 1,
+  status: 'PENDING',
+  documents: [
+    {
+      type: 'BVN',
+      reference: 'SYNTHETIC-BVN-3',
+      status: 'PENDING'
+    }
+  ],
+  created_at: ISODate('2026-07-28T00:00:00.000Z'),
+  source_ref: {
+    database: 'lendbridge_db',
+    schema: 'lb_bench',
+    table: 'borrowers'
+  },
+  schema_version: 1
+}
+PASS: 5000 profiles and 100000 events. Counts are initial seed counts.
+true
+Atlas atlas-wnjnv7-shard-0 [primary] lendbride_nosql>
+
+Atlas atlas-wnjnv7-shard-0 [primary] lendbride_nosql> load("C:/Users/USER/Downloads/ADM Project/portfolio-4-nosql/03_crud_and_aggregation.js")
+CREATE: temporary login session for existing borrower 1001
+{
+  _id: 'crud-6adfaf55ae4cddaefe9e753a',
+  borrower_id: 1001,
+  created_at: ISODate('2026-10-26T19:51:49.128Z'),
+  purpose: 'Temporary CRUD demonstration'
+}
+READ: nested BVN query and passport expiry with $elemMatch
+[
+  {
+    _id: ObjectId('6adfadabae4cddaefe9d0222'),
+    borrower_id: 1,
+    business_name: 'Synthetic MSME 1',
+    profile_tier: 2,
+    status: 'VERIFIED',
+    documents: [
+      {
+        type: 'BVN',
+        reference: 'SYNTHETIC-BVN-1',
+        status: 'VERIFIED'
+      },
+      {
+        type: 'CAC_CERT',
+        reference: 'SYNTHETIC-CAC-1',
+        status: 'VERIFIED'
+      }
+    ],
+    created_at: ISODate('2026-07-28T00:00:00.000Z'),
+    source_ref: {
+      database: 'lendbridge_db',
+      schema: 'lb_bench',
+      table: 'borrowers'
+    },
+    schema_version: 1
+  },
+  {
+    _id: ObjectId('6adfadabae4cddaefe9d0223'),
+    borrower_id: 2,
+    business_name: 'Synthetic MSME 2',
+    profile_tier: 3,
+    status: 'REJECTED',
+    documents: [
+      {
+        type: 'BVN',
+        reference: 'SYNTHETIC-BVN-2',
+        status: 'REJECTED'
+      },
+      {
+        type: 'CAC_CERT',
+        reference: 'SYNTHETIC-CAC-2',
+        status: 'REJECTED'
+      },
+      {
+        type: 'PASSPORT',
+        reference: 'SYNTHETIC-PASSPORT-2',
+        status: 'REJECTED',
+        expires_at: ISODate('2026-11-27T00:00:00.000Z')
+      }
+    ],
+    created_at: ISODate('2026-07-28T00:00:00.000Z'),
+    source_ref: {
+      database: 'lendbridge_db',
+      schema: 'lb_bench',
+      table: 'borrowers'
+    },
+    schema_version: 1,
+    risk_notes: 'Synthetic enhanced review example'
+  }
+]
+[
+  {
+    _id: ObjectId('6adfadabae4cddaefe9d0223'),
+    borrower_id: 2,
+    business_name: 'Synthetic MSME 2',
+    profile_tier: 3,
+    status: 'REJECTED',
+    documents: [
+      {
+        type: 'BVN',
+        reference: 'SYNTHETIC-BVN-2',
+        status: 'REJECTED'
+      },
+      {
+        type: 'CAC_CERT',
+        reference: 'SYNTHETIC-CAC-2',
+        status: 'REJECTED'
+      },
+      {
+        type: 'PASSPORT',
+        reference: 'SYNTHETIC-PASSPORT-2',
+        status: 'REJECTED',
+        expires_at: ISODate('2026-11-27T00:00:00.000Z')
+      }
+    ],
+    created_at: ISODate('2026-07-28T00:00:00.000Z'),
+    source_ref: {
+      database: 'lendbridge_db',
+      schema: 'lb_bench',
+      table: 'borrowers'
+    },
+    schema_version: 1,
+    risk_notes: 'Synthetic enhanced review example'
+  },
+  {
+    _id: ObjectId('6adfadabae4cddaefe9d0226'),
+    borrower_id: 5,
+    business_name: 'Synthetic MSME 5',
+    profile_tier: 3,
+    status: 'REJECTED',
+    documents: [
+      {
+        type: 'BVN',
+        reference: 'SYNTHETIC-BVN-5',
+        status: 'REJECTED'
+      },
+      {
+        type: 'CAC_CERT',
+        reference: 'SYNTHETIC-CAC-5',
+        status: 'REJECTED'
+      },
+      {
+        type: 'PASSPORT',
+        reference: 'SYNTHETIC-PASSPORT-5',
+        status: 'REJECTED',
+        expires_at: ISODate('2026-11-30T00:00:00.000Z')
+      }
+    ],
+    created_at: ISODate('2026-07-28T00:00:00.000Z'),
+    source_ref: {
+      database: 'lendbridge_db',
+      schema: 'lb_bench',
+      table: 'borrowers'
+    },
+    schema_version: 1,
+    risk_notes: 'Synthetic enhanced review example'
+  }
+]
+READ: latest 20 events for borrower 1001
+[
+  {
+    _id: ObjectId('6adfadadae4cddaefe9d2d28'),
+    event_id: 'seed-020015',
+    borrower_id: 1001,
+    event_type: 'KYC_SUBMITTED',
+    ts: ISODate('2026-10-25T22:47:16.483Z'),
+    metadata: {
+      city: 'Abuja',
+      synthetic: true
+    }
+  },
+  {
+    _id: ObjectId('6adfadadae4cddaefe9d2d1d'),
+    event_id: 'seed-020004',
+    borrower_id: 1001,
+    event_type: 'LOGIN_SUCCESS',
+    ts: ISODate('2026-10-22T14:21:05.134Z'),
+    metadata: {
+      city: 'Abuja',
+      synthetic: true
+    }
+  },
+  {
+    _id: ObjectId('6adfadadae4cddaefe9d2d24'),
+    event_id: 'seed-020011',
+    borrower_id: 1001,
+    event_type: 'LOGIN_FAILED',
+    ts: ISODate('2026-10-21T13:03:06.322Z'),
+    metadata: {
+      city: 'Abuja',
+      synthetic: true
+    }
+  },
+  {
+    _id: ObjectId('6adfadadae4cddaefe9d2d29'),
+    event_id: 'seed-020016',
+    borrower_id: 1001,
+    event_type: 'LOGIN_FAILED',
+    ts: ISODate('2026-10-21T04:39:53.311Z'),
+    metadata: {
+      city: 'Abuja',
+      synthetic: true
+    }
+  },
+  {
+    _id: ObjectId('6adfadadae4cddaefe9d2d2d'),
+    event_id: 'seed-020020',
+    borrower_id: 1001,
+    event_type: 'APPLICATION_SUBMITTED',
+    ts: ISODate('2026-10-13T09:55:52.794Z'),
+    metadata: {
+      city: 'Abuja',
+      synthetic: true,
+      requested_amount: Decimal128('1727000'),
+      currency: 'NGN'
+    }
+  },
+  {
+    _id: ObjectId('6adfadadae4cddaefe9d2d2b'),
+    event_id: 'seed-020018',
+    borrower_id: 1001,
+    event_type: 'LOGIN_SUCCESS',
+    ts: ISODate('2026-10-02T01:02:05.016Z'),
+    metadata: {
+      city: 'Abuja',
+      synthetic: true
+    }
+  },
+  {
+    _id: ObjectId('6adfadadae4cddaefe9d2d26'),
+    event_id: 'seed-020013',
+    borrower_id: 1001,
+    event_type: 'APPLICATION_SUBMITTED',
+    ts: ISODate('2026-09-24T03:50:30.092Z'),
+    metadata: {
+      city: 'Abuja',
+      synthetic: true,
+      requested_amount: Decimal128('1105000'),
+      currency: 'NGN'
+    }
+  },
+  {
+    _id: ObjectId('6adfadadae4cddaefe9d2d1c'),
+    event_id: 'seed-020003',
+    borrower_id: 1001,
+    event_type: 'FRAUD_FLAG',
+    ts: ISODate('2026-09-22T21:15:19.729Z'),
+    metadata: {
+      city: 'Abuja',
+      synthetic: true,
+      reason: 'Synthetic anomaly for review'
+    }
+  },
+  {
+    _id: ObjectId('6adfadadae4cddaefe9d2d22'),
+    event_id: 'seed-020009',
+    borrower_id: 1001,
+    event_type: 'KYC_SUBMITTED',
+    ts: ISODate('2026-09-17T12:59:42.136Z'),
+    metadata: {
+      city: 'Abuja',
+      synthetic: true
+    }
+  },
+  {
+    _id: ObjectId('6adfadadae4cddaefe9d2d2c'),
+    event_id: 'seed-020019',
+    borrower_id: 1001,
+    event_type: 'LOGIN_SUCCESS',
+    ts: ISODate('2026-09-14T10:47:38.235Z'),
+    metadata: {
+      city: 'Abuja',
+      synthetic: true
+    }
+  },
+  {
+    _id: ObjectId('6adfadadae4cddaefe9d2d1b'),
+    event_id: 'seed-020002',
+    borrower_id: 1001,
+    event_type: 'LOGIN_SUCCESS',
+    ts: ISODate('2026-09-13T13:35:22.666Z'),
+    metadata: {
+      city: 'Abuja',
+      synthetic: true
+    }
+  },
+  {
+    _id: ObjectId('6adfadadae4cddaefe9d2d1f'),
+    event_id: 'seed-020006',
+    borrower_id: 1001,
+    event_type: 'LOGIN_SUCCESS',
+    ts: ISODate('2026-09-12T09:11:17.016Z'),
+    metadata: {
+      city: 'Abuja',
+      synthetic: true
+    }
+  },
+  {
+    _id: ObjectId('6adfadadae4cddaefe9d2d1e'),
+    event_id: 'seed-020005',
+    borrower_id: 1001,
+    event_type: 'APPLICATION_SUBMITTED',
+    ts: ISODate('2026-09-11T11:03:10.673Z'),
+    metadata: {
+      city: 'Abuja',
+      synthetic: true,
+      requested_amount: Decimal128('1287000'),
+      currency: 'NGN'
+    }
+  },
+  {
+    _id: ObjectId('6adfadadae4cddaefe9d2d27'),
+    event_id: 'seed-020014',
+    borrower_id: 1001,
+    event_type: 'FRAUD_FLAG',
+    ts: ISODate('2026-08-31T03:46:02.448Z'),
+    metadata: {
+      city: 'Abuja',
+      synthetic: true,
+      reason: 'Synthetic anomaly for review'
+    }
+  },
+  {
+    _id: ObjectId('6adfadadae4cddaefe9d2d20'),
+    event_id: 'seed-020007',
+    borrower_id: 1001,
+    event_type: 'KYC_SUBMITTED',
+    ts: ISODate('2026-08-30T23:09:07.464Z'),
+    metadata: {
+      city: 'Abuja',
+      synthetic: true
+    }
+  },
+  {
+    _id: ObjectId('6adfadadae4cddaefe9d2d23'),
+    event_id: 'seed-020010',
+    borrower_id: 1001,
+    event_type: 'LOGIN_FAILED',
+    ts: ISODate('2026-08-30T13:38:56.327Z'),
+    metadata: {
+      city: 'Abuja',
+      synthetic: true
+    }
+  },
+  {
+    _id: ObjectId('6adfadadae4cddaefe9d2d25'),
+    event_id: 'seed-020012',
+    borrower_id: 1001,
+    event_type: 'FRAUD_FLAG',
+    ts: ISODate('2026-08-26T02:53:59.367Z'),
+    metadata: {
+      city: 'Abuja',
+      synthetic: true,
+      reason: 'Synthetic anomaly for review'
+    }
+  },
+  {
+    _id: ObjectId('6adfadadae4cddaefe9d2d1a'),
+    event_id: 'seed-020001',
+    borrower_id: 1001,
+    event_type: 'LOGIN_FAILED',
+    ts: ISODate('2026-08-23T08:44:25.081Z'),
+    metadata: {
+      city: 'Abuja',
+      synthetic: true
+    }
+  },
+  {
+    _id: ObjectId('6adfadadae4cddaefe9d2d21'),
+    event_id: 'seed-020008',
+    borrower_id: 1001,
+    event_type: 'LOGIN_SUCCESS',
+    ts: ISODate('2026-08-14T13:13:49.132Z'),
+    metadata: {
+      city: 'Abuja',
+      synthetic: true
+    }
+  },
+  {
+    _id: ObjectId('6adfadadae4cddaefe9d2d2a'),
+    event_id: 'seed-020017',
+    borrower_id: 1001,
+    event_type: 'LOGIN_SUCCESS',
+    ts: ISODate('2026-08-07T08:47:11.305Z'),
+    metadata: {
+      city: 'Abuja',
+      synthetic: true
+    }
+  }
+]
+UPDATE: demonstrate $set and $push on borrower 1001
+{
+  _id: ObjectId('6adfadafae4cddaefe9d542a'),
+  borrower_id: 1001,
+  business_name: 'Synthetic MSME 1001',
+  profile_tier: 3,
+  status: 'VERIFIED',
+  documents: [
+    {
+      type: 'BVN',
+      reference: 'SYNTHETIC-BVN-1001',
+      status: 'REJECTED'
+    },
+    {
+      type: 'CAC_CERT',
+      reference: 'SYNTHETIC-CAC-1001',
+      status: 'REJECTED'
+    },
+    {
+      type: 'PASSPORT',
+      reference: 'SYNTHETIC-PASSPORT-1001',
+      status: 'REJECTED',
+      expires_at: ISODate('2027-09-22T00:00:00.000Z')
+    },
+    {
+      type: 'NIN',
+      reference: 'SYNTHETIC-DEMO-6adfaf55ae4cddaefe9e753a',
+      status: 'VERIFIED'
+    }
+  ],
+  created_at: ISODate('2026-07-28T00:00:00.000Z'),
+  source_ref: {
+    database: 'lendbridge_db',
+    schema: 'lb_bench',
+    table: 'borrowers'
+  },
+  schema_version: 1,
+  risk_notes: 'Synthetic enhanced review example',
+  updated_at: ISODate('2026-10-26T19:51:49.884Z')
+}
+DELETE: remove only the temporary login session
+{
+  temporary_session_remaining: 0
+}
+AGGREGATION 1: event counts in 30 days before the fixed anchor
+[
+  {
+    _id: 'APPLICATION_SUBMITTED',
+    count: 6808
+  },
+  {
+    _id: 'KYC_SUBMITTED',
+    count: 6713
+  },
+  {
+    _id: 'FRAUD_FLAG',
+    count: 6664
+  },
+  {
+    _id: 'LOGIN_SUCCESS',
+    count: 6623
+  },
+  {
+    _id: 'LOGIN_FAILED',
+    count: 6483
+  }
+]
+AGGREGATION 2: requested NGN per UTC day, not cash disbursed or received
+[
+  {
+    _id: '2026-09-26',
+    requested_ngn: Decimal128('227369000'),
+    applications: 211
+  },
+  {
+    _id: '2026-09-27',
+    requested_ngn: Decimal128('228667000'),
+    applications: 230
+  },
+  {
+    _id: '2026-09-28',
+    requested_ngn: Decimal128('248120000'),
+    applications: 243
+  },
+  {
+    _id: '2026-09-29',
+    requested_ngn: Decimal128('224625000'),
+    applications: 231
+  },
+  {
+    _id: '2026-09-30',
+    requested_ngn: Decimal128('227800000'),
+    applications: 222
+  },
+  {
+    _id: '2026-10-01',
+    requested_ngn: Decimal128('246773000'),
+    applications: 238
+  },
+  {
+    _id: '2026-10-02',
+    requested_ngn: Decimal128('242752000'),
+    applications: 228
+  },
+  {
+    _id: '2026-10-03',
+    requested_ngn: Decimal128('204356000'),
+    applications: 205
+  },
+  {
+    _id: '2026-10-04',
+    requested_ngn: Decimal128('240465000'),
+    applications: 242
+  },
+  {
+    _id: '2026-10-05',
+    requested_ngn: Decimal128('201132000'),
+    applications: 212
+  },
+  {
+    _id: '2026-10-06',
+    requested_ngn: Decimal128('244434000'),
+    applications: 234
+  },
+  {
+    _id: '2026-10-07',
+    requested_ngn: Decimal128('224881000'),
+    applications: 206
+  },
+  {
+    _id: '2026-10-08',
+    requested_ngn: Decimal128('251087000'),
+    applications: 238
+  },
+  {
+    _id: '2026-10-09',
+    requested_ngn: Decimal128('238094000'),
+    applications: 241
+  },
+  {
+    _id: '2026-10-10',
+    requested_ngn: Decimal128('217369000'),
+    applications: 225
+  },
+  {
+    _id: '2026-10-11',
+    requested_ngn: Decimal128('233578000'),
+    applications: 232
+  },
+  {
+    _id: '2026-10-12',
+    requested_ngn: Decimal128('240655000'),
+    applications: 236
+  },
+  {
+    _id: '2026-10-13',
+    requested_ngn: Decimal128('218194000'),
+    applications: 210
+  },
+  {
+    _id: '2026-10-14',
+    requested_ngn: Decimal128('217689000'),
+    applications: 212
+  },
+  {
+    _id: '2026-10-15',
+    requested_ngn: Decimal128('239660000'),
+    applications: 236
+  },
+  {
+    _id: '2026-10-16',
+    requested_ngn: Decimal128('235134000'),
+    applications: 234
+  },
+  {
+    _id: '2026-10-17',
+    requested_ngn: Decimal128('229369000'),
+    applications: 226
+  },
+  {
+    _id: '2026-10-18',
+    requested_ngn: Decimal128('210975000'),
+    applications: 207
+  },
+  {
+    _id: '2026-10-19',
+    requested_ngn: Decimal128('254911000'),
+    applications: 261
+  },
+  {
+    _id: '2026-10-20',
+    requested_ngn: Decimal128('232109000'),
+    applications: 241
+  },
+  {
+    _id: '2026-10-21',
+    requested_ngn: Decimal128('212560000'),
+    applications: 200
+  },
+  {
+    _id: '2026-10-22',
+    requested_ngn: Decimal128('221864000'),
+    applications: 218
+  },
+  {
+    _id: '2026-10-23',
+    requested_ngn: Decimal128('230177000'),
+    applications: 219
+  },
+  {
+    _id: '2026-10-24',
+    requested_ngn: Decimal128('247009000'),
+    applications: 226
+  },
+  {
+    _id: '2026-10-25',
+    requested_ngn: Decimal128('256094000'),
+    applications: 244
+  }
+]
+AGGREGATION 3: top 5 failed-login borrowers and their KYC tier
+[
+  {
+    failures: 7,
+    borrower_id: 884,
+    business_name: 'Synthetic MSME 884',
+    profile_tier: 3
+  },
+  {
+    failures: 7,
+    borrower_id: 2810,
+    business_name: 'Synthetic MSME 2810',
+    profile_tier: 3
+  },
+  {
+    failures: 6,
+    borrower_id: 2019,
+    business_name: 'Synthetic MSME 2019',
+    profile_tier: 1
+  },
+  {
+    failures: 6,
+    borrower_id: 2647,
+    business_name: 'Synthetic MSME 2647',
+    profile_tier: 2
+  },
+  {
+    failures: 6,
+    borrower_id: 2721,
+    business_name: 'Synthetic MSME 2721',
+    profile_tier: 1
+  }
+]
+AGGREGATION 4: average embedded document count per profile tier
+[
+  {
+    _id: 1,
+    mean_documents: 1,
+    profiles: 1666
+  },
+  {
+    _id: 2,
+    mean_documents: 2,
+    profiles: 1667
+  },
+  {
+    _id: 3,
+    mean_documents: 3,
+    profiles: 1667
+  }
+]
+{
+  profiles: 5000,
+  total_events: 100002,
+  seed_events: 100000,
+  demo_events: 2
+}
+true
+Atlas atlas-wnjnv7-shard-0 [primary] lendbride_nosql> load("C:/Users/USER/Downloads/ADM Project/portfolio-4-nosql/04_indexes_explain.js")
+BASELINE INDEX INVENTORY
+{
+  audit_events: [
+    {
+      v: 2,
+      key: {
+        _id: 1
+      },
+      name: '_id_'
+    }
+  ],
+  kyc_profiles: [
+    {
+      v: 2,
+      key: {
+        _id: 1
+      },
+      name: '_id_'
+    }
+  ]
+}
+{
+  phase: 'BEFORE',
+  query: 'Q1',
+  run: 1,
+  returned: 20,
+  documents_examined: 100002,
+  keys_examined: 0,
+  execution_ms: 67,
+  winning_plan: {
+    isCached: false,
+    stage: 'SORT',
+    sortPattern: {
+      ts: -1
+    },
+    memLimit: 33554432,
+    limitAmount: 20,
+    type: 'simple',
+    inputStage: {
+      stage: 'COLLSCAN',
+      filter: {
+        '$and': [
+          {
+            borrower_id: {
+              '$eq': 1001
+            }
+          },
+          {
+            ts: {
+              '$lt': ISODate('2026-10-26T00:00:00.000Z')
+            }
+          }
+        ]
+      },
+      direction: 'forward'
+    }
+  },
+  execution_stages: {
+    isCached: false,
+    stage: 'SORT',
+    nReturned: 20,
+    executionTimeMillisEstimate: 58,
+    works: 100024,
+    advanced: 20,
+    needTime: 100003,
+    needYield: 0,
+    saveState: 3,
+    restoreState: 3,
+    isEOF: 1,
+    sortPattern: {
+      ts: -1
+    },
+    memLimit: 33554432,
+    limitAmount: 20,
+    type: 'simple',
+    totalDataSizeSorted: 3930,
+    usedDisk: false,
+    spills: 0,
+    spilledDataStorageSize: 0,
+    inputStage: {
+      stage: 'COLLSCAN',
+      filter: {
+        '$and': [
+          {
+            borrower_id: {
+              '$eq': 1001
+            }
+          },
+          {
+            ts: {
+              '$lt': ISODate('2026-10-26T00:00:00.000Z')
+            }
+          }
+        ]
+      },
+      nReturned: 20,
+      executionTimeMillisEstimate: 58,
+      works: 100003,
+      advanced: 20,
+      needTime: 99982,
+      needYield: 0,
+      saveState: 3,
+      restoreState: 3,
+      isEOF: 1,
+      direction: 'forward',
+      docsExamined: 100002
+    }
+  }
+}
+{
+  phase: 'BEFORE',
+  query: 'Q1',
+  run: 2,
+  returned: 20,
+  documents_examined: 100002,
+  keys_examined: 0,
+  execution_ms: 59,
+  winning_plan: {
+    isCached: false,
+    stage: 'SORT',
+    sortPattern: {
+      ts: -1
+    },
+    memLimit: 33554432,
+    limitAmount: 20,
+    type: 'simple',
+    inputStage: {
+      stage: 'COLLSCAN',
+      filter: {
+        '$and': [
+          {
+            borrower_id: {
+              '$eq': 1001
+            }
+          },
+          {
+            ts: {
+              '$lt': ISODate('2026-10-26T00:00:00.000Z')
+            }
+          }
+        ]
+      },
+      direction: 'forward'
+    }
+  },
+  execution_stages: {
+    isCached: false,
+    stage: 'SORT',
+    nReturned: 20,
+    executionTimeMillisEstimate: 58,
+    works: 100024,
+    advanced: 20,
+    needTime: 100003,
+    needYield: 0,
+    saveState: 3,
+    restoreState: 3,
+    isEOF: 1,
+    sortPattern: {
+      ts: -1
+    },
+    memLimit: 33554432,
+    limitAmount: 20,
+    type: 'simple',
+    totalDataSizeSorted: 3930,
+    usedDisk: false,
+    spills: 0,
+    spilledDataStorageSize: 0,
+    inputStage: {
+      stage: 'COLLSCAN',
+      filter: {
+        '$and': [
+          {
+            borrower_id: {
+              '$eq': 1001
+            }
+          },
+          {
+            ts: {
+              '$lt': ISODate('2026-10-26T00:00:00.000Z')
+            }
+          }
+        ]
+      },
+      nReturned: 20,
+      executionTimeMillisEstimate: 58,
+      works: 100003,
+      advanced: 20,
+      needTime: 99982,
+      needYield: 0,
+      saveState: 3,
+      restoreState: 3,
+      isEOF: 1,
+      direction: 'forward',
+      docsExamined: 100002
+    }
+  }
+}
+{
+  phase: 'BEFORE',
+  query: 'Q1',
+  run: 3,
+  returned: 20,
+  documents_examined: 100002,
+  keys_examined: 0,
+  execution_ms: 60,
+  winning_plan: {
+    isCached: false,
+    stage: 'SORT',
+    sortPattern: {
+      ts: -1
+    },
+    memLimit: 33554432,
+    limitAmount: 20,
+    type: 'simple',
+    inputStage: {
+      stage: 'COLLSCAN',
+      filter: {
+        '$and': [
+          {
+            borrower_id: {
+              '$eq': 1001
+            }
+          },
+          {
+            ts: {
+              '$lt': ISODate('2026-10-26T00:00:00.000Z')
+            }
+          }
+        ]
+      },
+      direction: 'forward'
+    }
+  },
+  execution_stages: {
+    isCached: false,
+    stage: 'SORT',
+    nReturned: 20,
+    executionTimeMillisEstimate: 60,
+    works: 100024,
+    advanced: 20,
+    needTime: 100003,
+    needYield: 0,
+    saveState: 3,
+    restoreState: 3,
+    isEOF: 1,
+    sortPattern: {
+      ts: -1
+    },
+    memLimit: 33554432,
+    limitAmount: 20,
+    type: 'simple',
+    totalDataSizeSorted: 3930,
+    usedDisk: false,
+    spills: 0,
+    spilledDataStorageSize: 0,
+    inputStage: {
+      stage: 'COLLSCAN',
+      filter: {
+        '$and': [
+          {
+            borrower_id: {
+              '$eq': 1001
+            }
+          },
+          {
+            ts: {
+              '$lt': ISODate('2026-10-26T00:00:00.000Z')
+            }
+          }
+        ]
+      },
+      nReturned: 20,
+      executionTimeMillisEstimate: 60,
+      works: 100003,
+      advanced: 20,
+      needTime: 99982,
+      needYield: 0,
+      saveState: 3,
+      restoreState: 3,
+      isEOF: 1,
+      direction: 'forward',
+      docsExamined: 100002
+    }
+  }
+}
+{
+  phase: 'BEFORE',
+  query: 'Q2',
+  run: 1,
+  returned: 1528,
+  documents_examined: 100002,
+  keys_examined: 0,
+  execution_ms: 99,
+  winning_plan: {
+    isCached: false,
+    stage: 'COLLSCAN',
+    filter: {
+      '$and': [
+        {
+          event_type: {
+            '$eq': 'FRAUD_FLAG'
+          }
+        },
+        {
+          ts: {
+            '$lt': ISODate('2026-10-26T00:00:00.000Z')
+          }
+        },
+        {
+          ts: {
+            '$gte': ISODate('2026-10-19T00:00:00.000Z')
+          }
+        }
+      ]
+    },
+    direction: 'forward'
+  },
+  execution_stages: {
+    isCached: false,
+    stage: 'COLLSCAN',
+    filter: {
+      '$and': [
+        {
+          event_type: {
+            '$eq': 'FRAUD_FLAG'
+          }
+        },
+        {
+          ts: {
+            '$lt': ISODate('2026-10-26T00:00:00.000Z')
+          }
+        },
+        {
+          ts: {
+            '$gte': ISODate('2026-10-19T00:00:00.000Z')
+          }
+        }
+      ]
+    },
+    nReturned: 1528,
+    executionTimeMillisEstimate: 97,
+    works: 100003,
+    advanced: 1528,
+    needTime: 98474,
+    needYield: 0,
+    saveState: 7,
+    restoreState: 7,
+    isEOF: 1,
+    direction: 'forward',
+    docsExamined: 100002
+  }
+}
+{
+  phase: 'BEFORE',
+  query: 'Q2',
+  run: 2,
+  returned: 1528,
+  documents_examined: 100002,
+  keys_examined: 0,
+  execution_ms: 72,
+  winning_plan: {
+    isCached: false,
+    stage: 'COLLSCAN',
+    filter: {
+      '$and': [
+        {
+          event_type: {
+            '$eq': 'FRAUD_FLAG'
+          }
+        },
+        {
+          ts: {
+            '$lt': ISODate('2026-10-26T00:00:00.000Z')
+          }
+        },
+        {
+          ts: {
+            '$gte': ISODate('2026-10-19T00:00:00.000Z')
+          }
+        }
+      ]
+    },
+    direction: 'forward'
+  },
+  execution_stages: {
+    isCached: false,
+    stage: 'COLLSCAN',
+    filter: {
+      '$and': [
+        {
+          event_type: {
+            '$eq': 'FRAUD_FLAG'
+          }
+        },
+        {
+          ts: {
+            '$lt': ISODate('2026-10-26T00:00:00.000Z')
+          }
+        },
+        {
+          ts: {
+            '$gte': ISODate('2026-10-19T00:00:00.000Z')
+          }
+        }
+      ]
+    },
+    nReturned: 1528,
+    executionTimeMillisEstimate: 67,
+    works: 100003,
+    advanced: 1528,
+    needTime: 98474,
+    needYield: 0,
+    saveState: 5,
+    restoreState: 5,
+    isEOF: 1,
+    direction: 'forward',
+    docsExamined: 100002
+  }
+}
+{
+  phase: 'BEFORE',
+  query: 'Q2',
+  run: 3,
+  returned: 1528,
+  documents_examined: 100002,
+  keys_examined: 0,
+  execution_ms: 65,
+  winning_plan: {
+    isCached: false,
+    stage: 'COLLSCAN',
+    filter: {
+      '$and': [
+        {
+          event_type: {
+            '$eq': 'FRAUD_FLAG'
+          }
+        },
+        {
+          ts: {
+            '$lt': ISODate('2026-10-26T00:00:00.000Z')
+          }
+        },
+        {
+          ts: {
+            '$gte': ISODate('2026-10-19T00:00:00.000Z')
+          }
+        }
+      ]
+    },
+    direction: 'forward'
+  },
+  execution_stages: {
+    isCached: false,
+    stage: 'COLLSCAN',
+    filter: {
+      '$and': [
+        {
+          event_type: {
+            '$eq': 'FRAUD_FLAG'
+          }
+        },
+        {
+          ts: {
+            '$lt': ISODate('2026-10-26T00:00:00.000Z')
+          }
+        },
+        {
+          ts: {
+            '$gte': ISODate('2026-10-19T00:00:00.000Z')
+          }
+        }
+      ]
+    },
+    nReturned: 1528,
+    executionTimeMillisEstimate: 62,
+    works: 100003,
+    advanced: 1528,
+    needTime: 98474,
+    needYield: 0,
+    saveState: 4,
+    restoreState: 4,
+    isEOF: 1,
+    direction: 'forward',
+    docsExamined: 100002
+  }
+}
+{
+  phase: 'BEFORE',
+  query: 'Q3',
+  run: 1,
+  returned: 1,
+  documents_examined: 5000,
+  keys_examined: 0,
+  execution_ms: 4,
+  winning_plan: {
+    isCached: true,
+    stage: 'COLLSCAN',
+    filter: {
+      borrower_id: {
+        '$eq': 2500
+      }
+    },
+    direction: 'forward'
+  },
+  execution_stages: {
+    isCached: true,
+    stage: 'COLLSCAN',
+    filter: {
+      borrower_id: {
+        '$eq': 2500
+      }
+    },
+    nReturned: 1,
+    executionTimeMillisEstimate: 4,
+    works: 5001,
+    advanced: 1,
+    needTime: 4999,
+    needYield: 0,
+    saveState: 0,
+    restoreState: 0,
+    isEOF: 1,
+    direction: 'forward',
+    docsExamined: 5000
+  }
+}
+{
+  phase: 'BEFORE',
+  query: 'Q3',
+  run: 2,
+  returned: 1,
+  documents_examined: 5000,
+  keys_examined: 0,
+  execution_ms: 3,
+  winning_plan: {
+    isCached: true,
+    stage: 'COLLSCAN',
+    filter: {
+      borrower_id: {
+        '$eq': 2500
+      }
+    },
+    direction: 'forward'
+  },
+  execution_stages: {
+    isCached: true,
+    stage: 'COLLSCAN',
+    filter: {
+      borrower_id: {
+        '$eq': 2500
+      }
+    },
+    nReturned: 1,
+    executionTimeMillisEstimate: 4,
+    works: 5001,
+    advanced: 1,
+    needTime: 4999,
+    needYield: 0,
+    saveState: 0,
+    restoreState: 0,
+    isEOF: 1,
+    direction: 'forward',
+    docsExamined: 5000
+  }
+}
+{
+  phase: 'BEFORE',
+  query: 'Q3',
+  run: 3,
+  returned: 1,
+  documents_examined: 5000,
+  keys_examined: 0,
+  execution_ms: 3,
+  winning_plan: {
+    isCached: true,
+    stage: 'COLLSCAN',
+    filter: {
+      borrower_id: {
+        '$eq': 2500
+      }
+    },
+    direction: 'forward'
+  },
+  execution_stages: {
+    isCached: true,
+    stage: 'COLLSCAN',
+    filter: {
+      borrower_id: {
+        '$eq': 2500
+      }
+    },
+    nReturned: 1,
+    executionTimeMillisEstimate: 3,
+    works: 5001,
+    advanced: 1,
+    needTime: 4999,
+    needYield: 0,
+    saveState: 0,
+    restoreState: 0,
+    isEOF: 1,
+    direction: 'forward',
+    docsExamined: 5000
+  }
+}
+{
+  phase: 'AFTER',
+  query: 'Q1',
+  run: 1,
+  returned: 20,
+  documents_examined: 20,
+  keys_examined: 20,
+  execution_ms: 1,
+  winning_plan: {
+    isCached: false,
+    stage: 'LIMIT',
+    limitAmount: 20,
+    inputStage: {
+      stage: 'FETCH',
+      inputStage: {
+        stage: 'IXSCAN',
+        keyPattern: {
+          borrower_id: 1,
+          ts: -1
+        },
+        indexName: 'idx_borrower_ts',
+        isMultiKey: false,
+        multiKeyPaths: {
+          borrower_id: [],
+          ts: []
+        },
+        isUnique: false,
+        isSparse: false,
+        isPartial: false,
+        indexVersion: 2,
+        direction: 'forward',
+        indexBounds: {
+          borrower_id: [
+            '[1001, 1001]'
+          ],
+          ts: [
+            '(new Date(1792972800000), new Date(-9223372036854775808)]'
+          ]
+        }
+      }
+    }
+  },
+  execution_stages: {
+    isCached: false,
+    stage: 'LIMIT',
+    nReturned: 20,
+    executionTimeMillisEstimate: 0,
+    works: 21,
+    advanced: 20,
+    needTime: 0,
+    needYield: 0,
+    saveState: 0,
+    restoreState: 0,
+    isEOF: 1,
+    limitAmount: 20,
+    inputStage: {
+      stage: 'FETCH',
+      nReturned: 20,
+      executionTimeMillisEstimate: 0,
+      works: 20,
+      advanced: 20,
+      needTime: 0,
+      needYield: 0,
+      saveState: 0,
+      restoreState: 0,
+      isEOF: 0,
+      docsExamined: 20,
+      alreadyHasObj: 0,
+      inputStage: {
+        stage: 'IXSCAN',
+        nReturned: 20,
+        executionTimeMillisEstimate: 0,
+        works: 20,
+        advanced: 20,
+        needTime: 0,
+        needYield: 0,
+        saveState: 0,
+        restoreState: 0,
+        isEOF: 0,
+        keyPattern: {
+          borrower_id: 1,
+          ts: -1
+        },
+        indexName: 'idx_borrower_ts',
+        isMultiKey: false,
+        multiKeyPaths: {
+          borrower_id: [],
+          ts: []
+        },
+        isUnique: false,
+        isSparse: false,
+        isPartial: false,
+        indexVersion: 2,
+        direction: 'forward',
+        indexBounds: {
+          borrower_id: [
+            '[1001, 1001]'
+          ],
+          ts: [
+            '(new Date(1792972800000), new Date(-9223372036854775808)]'
+          ]
+        },
+        keysExamined: 20,
+        seeks: 1,
+        dupsTested: 0,
+        dupsDropped: 0
+      }
+    }
+  }
+}
+{
+  phase: 'AFTER',
+  query: 'Q1',
+  run: 2,
+  returned: 20,
+  documents_examined: 20,
+  keys_examined: 20,
+  execution_ms: 0,
+  winning_plan: {
+    isCached: false,
+    stage: 'LIMIT',
+    limitAmount: 20,
+    inputStage: {
+      stage: 'FETCH',
+      inputStage: {
+        stage: 'IXSCAN',
+        keyPattern: {
+          borrower_id: 1,
+          ts: -1
+        },
+        indexName: 'idx_borrower_ts',
+        isMultiKey: false,
+        multiKeyPaths: {
+          borrower_id: [],
+          ts: []
+        },
+        isUnique: false,
+        isSparse: false,
+        isPartial: false,
+        indexVersion: 2,
+        direction: 'forward',
+        indexBounds: {
+          borrower_id: [
+            '[1001, 1001]'
+          ],
+          ts: [
+            '(new Date(1792972800000), new Date(-9223372036854775808)]'
+          ]
+        }
+      }
+    }
+  },
+  execution_stages: {
+    isCached: false,
+    stage: 'LIMIT',
+    nReturned: 20,
+    executionTimeMillisEstimate: 0,
+    works: 21,
+    advanced: 20,
+    needTime: 0,
+    needYield: 0,
+    saveState: 0,
+    restoreState: 0,
+    isEOF: 1,
+    limitAmount: 20,
+    inputStage: {
+      stage: 'FETCH',
+      nReturned: 20,
+      executionTimeMillisEstimate: 0,
+      works: 20,
+      advanced: 20,
+      needTime: 0,
+      needYield: 0,
+      saveState: 0,
+      restoreState: 0,
+      isEOF: 0,
+      docsExamined: 20,
+      alreadyHasObj: 0,
+      inputStage: {
+        stage: 'IXSCAN',
+        nReturned: 20,
+        executionTimeMillisEstimate: 0,
+        works: 20,
+        advanced: 20,
+        needTime: 0,
+        needYield: 0,
+        saveState: 0,
+        restoreState: 0,
+        isEOF: 0,
+        keyPattern: {
+          borrower_id: 1,
+          ts: -1
+        },
+        indexName: 'idx_borrower_ts',
+        isMultiKey: false,
+        multiKeyPaths: {
+          borrower_id: [],
+          ts: []
+        },
+        isUnique: false,
+        isSparse: false,
+        isPartial: false,
+        indexVersion: 2,
+        direction: 'forward',
+        indexBounds: {
+          borrower_id: [
+            '[1001, 1001]'
+          ],
+          ts: [
+            '(new Date(1792972800000), new Date(-9223372036854775808)]'
+          ]
+        },
+        keysExamined: 20,
+        seeks: 1,
+        dupsTested: 0,
+        dupsDropped: 0
+      }
+    }
+  }
+}
+{
+  phase: 'AFTER',
+  query: 'Q1',
+  run: 3,
+  returned: 20,
+  documents_examined: 20,
+  keys_examined: 20,
+  execution_ms: 0,
+  winning_plan: {
+    isCached: false,
+    stage: 'LIMIT',
+    limitAmount: 20,
+    inputStage: {
+      stage: 'FETCH',
+      inputStage: {
+        stage: 'IXSCAN',
+        keyPattern: {
+          borrower_id: 1,
+          ts: -1
+        },
+        indexName: 'idx_borrower_ts',
+        isMultiKey: false,
+        multiKeyPaths: {
+          borrower_id: [],
+          ts: []
+        },
+        isUnique: false,
+        isSparse: false,
+        isPartial: false,
+        indexVersion: 2,
+        direction: 'forward',
+        indexBounds: {
+          borrower_id: [
+            '[1001, 1001]'
+          ],
+          ts: [
+            '(new Date(1792972800000), new Date(-9223372036854775808)]'
+          ]
+        }
+      }
+    }
+  },
+  execution_stages: {
+    isCached: false,
+    stage: 'LIMIT',
+    nReturned: 20,
+    executionTimeMillisEstimate: 0,
+    works: 21,
+    advanced: 20,
+    needTime: 0,
+    needYield: 0,
+    saveState: 0,
+    restoreState: 0,
+    isEOF: 1,
+    limitAmount: 20,
+    inputStage: {
+      stage: 'FETCH',
+      nReturned: 20,
+      executionTimeMillisEstimate: 0,
+      works: 20,
+      advanced: 20,
+      needTime: 0,
+      needYield: 0,
+      saveState: 0,
+      restoreState: 0,
+      isEOF: 0,
+      docsExamined: 20,
+      alreadyHasObj: 0,
+      inputStage: {
+        stage: 'IXSCAN',
+        nReturned: 20,
+        executionTimeMillisEstimate: 0,
+        works: 20,
+        advanced: 20,
+        needTime: 0,
+        needYield: 0,
+        saveState: 0,
+        restoreState: 0,
+        isEOF: 0,
+        keyPattern: {
+          borrower_id: 1,
+          ts: -1
+        },
+        indexName: 'idx_borrower_ts',
+        isMultiKey: false,
+        multiKeyPaths: {
+          borrower_id: [],
+          ts: []
+        },
+        isUnique: false,
+        isSparse: false,
+        isPartial: false,
+        indexVersion: 2,
+        direction: 'forward',
+        indexBounds: {
+          borrower_id: [
+            '[1001, 1001]'
+          ],
+          ts: [
+            '(new Date(1792972800000), new Date(-9223372036854775808)]'
+          ]
+        },
+        keysExamined: 20,
+        seeks: 1,
+        dupsTested: 0,
+        dupsDropped: 0
+      }
+    }
+  }
+}
+{
+  phase: 'AFTER',
+  query: 'Q2',
+  run: 1,
+  returned: 1528,
+  documents_examined: 1528,
+  keys_examined: 1528,
+  execution_ms: 4,
+  winning_plan: {
+    isCached: false,
+    stage: 'FETCH',
+    inputStage: {
+      stage: 'IXSCAN',
+      keyPattern: {
+        event_type: 1,
+        ts: -1
+      },
+      indexName: 'idx_type_ts',
+      isMultiKey: false,
+      multiKeyPaths: {
+        event_type: [],
+        ts: []
+      },
+      isUnique: false,
+      isSparse: false,
+      isPartial: false,
+      indexVersion: 2,
+      direction: 'forward',
+      indexBounds: {
+        event_type: [
+          '["FRAUD_FLAG", "FRAUD_FLAG"]'
+        ],
+        ts: [
+          '(new Date(1792972800000), new Date(1792368000000)]'
+        ]
+      }
+    }
+  },
+  execution_stages: {
+    isCached: false,
+    stage: 'FETCH',
+    nReturned: 1528,
+    executionTimeMillisEstimate: 4,
+    works: 1529,
+    advanced: 1528,
+    needTime: 0,
+    needYield: 0,
+    saveState: 0,
+    restoreState: 0,
+    isEOF: 1,
+    docsExamined: 1528,
+    alreadyHasObj: 0,
+    inputStage: {
+      stage: 'IXSCAN',
+      nReturned: 1528,
+      executionTimeMillisEstimate: 0,
+      works: 1529,
+      advanced: 1528,
+      needTime: 0,
+      needYield: 0,
+      saveState: 0,
+      restoreState: 0,
+      isEOF: 1,
+      keyPattern: {
+        event_type: 1,
+        ts: -1
+      },
+      indexName: 'idx_type_ts',
+      isMultiKey: false,
+      multiKeyPaths: {
+        event_type: [],
+        ts: []
+      },
+      isUnique: false,
+      isSparse: false,
+      isPartial: false,
+      indexVersion: 2,
+      direction: 'forward',
+      indexBounds: {
+        event_type: [
+          '["FRAUD_FLAG", "FRAUD_FLAG"]'
+        ],
+        ts: [
+          '(new Date(1792972800000), new Date(1792368000000)]'
+        ]
+      },
+      keysExamined: 1528,
+      seeks: 1,
+      dupsTested: 0,
+      dupsDropped: 0
+    }
+  }
+}
+{
+  phase: 'AFTER',
+  query: 'Q2',
+  run: 2,
+  returned: 1528,
+  documents_examined: 1528,
+  keys_examined: 1528,
+  execution_ms: 3,
+  winning_plan: {
+    isCached: false,
+    stage: 'FETCH',
+    inputStage: {
+      stage: 'IXSCAN',
+      keyPattern: {
+        event_type: 1,
+        ts: -1
+      },
+      indexName: 'idx_type_ts',
+      isMultiKey: false,
+      multiKeyPaths: {
+        event_type: [],
+        ts: []
+      },
+      isUnique: false,
+      isSparse: false,
+      isPartial: false,
+      indexVersion: 2,
+      direction: 'forward',
+      indexBounds: {
+        event_type: [
+          '["FRAUD_FLAG", "FRAUD_FLAG"]'
+        ],
+        ts: [
+          '(new Date(1792972800000), new Date(1792368000000)]'
+        ]
+      }
+    }
+  },
+  execution_stages: {
+    isCached: false,
+    stage: 'FETCH',
+    nReturned: 1528,
+    executionTimeMillisEstimate: 2,
+    works: 1529,
+    advanced: 1528,
+    needTime: 0,
+    needYield: 0,
+    saveState: 0,
+    restoreState: 0,
+    isEOF: 1,
+    docsExamined: 1528,
+    alreadyHasObj: 0,
+    inputStage: {
+      stage: 'IXSCAN',
+      nReturned: 1528,
+      executionTimeMillisEstimate: 0,
+      works: 1529,
+      advanced: 1528,
+      needTime: 0,
+      needYield: 0,
+      saveState: 0,
+      restoreState: 0,
+      isEOF: 1,
+      keyPattern: {
+        event_type: 1,
+        ts: -1
+      },
+      indexName: 'idx_type_ts',
+      isMultiKey: false,
+      multiKeyPaths: {
+        event_type: [],
+        ts: []
+      },
+      isUnique: false,
+      isSparse: false,
+      isPartial: false,
+      indexVersion: 2,
+      direction: 'forward',
+      indexBounds: {
+        event_type: [
+          '["FRAUD_FLAG", "FRAUD_FLAG"]'
+        ],
+        ts: [
+          '(new Date(1792972800000), new Date(1792368000000)]'
+        ]
+      },
+      keysExamined: 1528,
+      seeks: 1,
+      dupsTested: 0,
+      dupsDropped: 0
+    }
+  }
+}
+{
+  phase: 'AFTER',
+  query: 'Q2',
+  run: 3,
+  returned: 1528,
+  documents_examined: 1528,
+  keys_examined: 1528,
+  execution_ms: 3,
+  winning_plan: {
+    isCached: false,
+    stage: 'FETCH',
+    inputStage: {
+      stage: 'IXSCAN',
+      keyPattern: {
+        event_type: 1,
+        ts: -1
+      },
+      indexName: 'idx_type_ts',
+      isMultiKey: false,
+      multiKeyPaths: {
+        event_type: [],
+        ts: []
+      },
+      isUnique: false,
+      isSparse: false,
+      isPartial: false,
+      indexVersion: 2,
+      direction: 'forward',
+      indexBounds: {
+        event_type: [
+          '["FRAUD_FLAG", "FRAUD_FLAG"]'
+        ],
+        ts: [
+          '(new Date(1792972800000), new Date(1792368000000)]'
+        ]
+      }
+    }
+  },
+  execution_stages: {
+    isCached: false,
+    stage: 'FETCH',
+    nReturned: 1528,
+    executionTimeMillisEstimate: 3,
+    works: 1529,
+    advanced: 1528,
+    needTime: 0,
+    needYield: 0,
+    saveState: 0,
+    restoreState: 0,
+    isEOF: 1,
+    docsExamined: 1528,
+    alreadyHasObj: 0,
+    inputStage: {
+      stage: 'IXSCAN',
+      nReturned: 1528,
+      executionTimeMillisEstimate: 1,
+      works: 1529,
+      advanced: 1528,
+      needTime: 0,
+      needYield: 0,
+      saveState: 0,
+      restoreState: 0,
+      isEOF: 1,
+      keyPattern: {
+        event_type: 1,
+        ts: -1
+      },
+      indexName: 'idx_type_ts',
+      isMultiKey: false,
+      multiKeyPaths: {
+        event_type: [],
+        ts: []
+      },
+      isUnique: false,
+      isSparse: false,
+      isPartial: false,
+      indexVersion: 2,
+      direction: 'forward',
+      indexBounds: {
+        event_type: [
+          '["FRAUD_FLAG", "FRAUD_FLAG"]'
+        ],
+        ts: [
+          '(new Date(1792972800000), new Date(1792368000000)]'
+        ]
+      },
+      keysExamined: 1528,
+      seeks: 1,
+      dupsTested: 0,
+      dupsDropped: 0
+    }
+  }
+}
+{
+  phase: 'AFTER',
+  query: 'Q3',
+  run: 1,
+  returned: 1,
+  documents_examined: 1,
+  keys_examined: 1,
+  execution_ms: 1,
+  winning_plan: {
+    isCached: false,
+    stage: 'EXPRESS_IXSCAN',
+    keyPattern: '{ borrower_id: 1 }',
+    indexName: 'uq_borrower_id'
+  },
+  execution_stages: {
+    isCached: false,
+    stage: 'EXPRESS_IXSCAN',
+    keyPattern: '{ borrower_id: 1 }',
+    indexName: 'uq_borrower_id',
+    keysExamined: 1,
+    docsExamined: 1,
+    nReturned: 1
+  }
+}
+{
+  phase: 'AFTER',
+  query: 'Q3',
+  run: 2,
+  returned: 1,
+  documents_examined: 1,
+  keys_examined: 1,
+  execution_ms: 0,
+  winning_plan: {
+    isCached: false,
+    stage: 'EXPRESS_IXSCAN',
+    keyPattern: '{ borrower_id: 1 }',
+    indexName: 'uq_borrower_id'
+  },
+  execution_stages: {
+    isCached: false,
+    stage: 'EXPRESS_IXSCAN',
+    keyPattern: '{ borrower_id: 1 }',
+    indexName: 'uq_borrower_id',
+    keysExamined: 1,
+    docsExamined: 1,
+    nReturned: 1
+  }
+}
+{
+  phase: 'AFTER',
+  query: 'Q3',
+  run: 3,
+  returned: 1,
+  documents_examined: 1,
+  keys_examined: 1,
+  execution_ms: 0,
+  winning_plan: {
+    isCached: false,
+    stage: 'EXPRESS_IXSCAN',
+    keyPattern: '{ borrower_id: 1 }',
+    indexName: 'uq_borrower_id'
+  },
+  execution_stages: {
+    isCached: false,
+    stage: 'EXPRESS_IXSCAN',
+    keyPattern: '{ borrower_id: 1 }',
+    indexName: 'uq_borrower_id',
+    keysExamined: 1,
+    docsExamined: 1,
+    nReturned: 1
+  }
+}
+PASS: duplicate borrower rejected code 11000
+TTL_INITIAL: automatic deletion is asynchronous; inspect again later.
+[
+  {
+    _id: 'ttl-expired',
+    borrower_id: 1001,
+    created_at: ISODate('2026-10-26T18:07:27.483Z'),
+    purpose: 'TTL evidence'
+  },
+  {
+    _id: 'ttl-fresh',
+    borrower_id: 1001,
+    created_at: ISODate('2026-10-26T20:07:27.483Z'),
+    purpose: 'TTL evidence'
+  }
+]
+INDEXES: audit_events
+[
+  {
+    v: 2,
+    key: {
+      _id: 1
+    },
+    name: '_id_'
+  },
+  {
+    v: 2,
+    key: {
+      borrower_id: 1,
+      ts: -1
+    },
+    name: 'idx_borrower_ts'
+  },
+  {
+    v: 2,
+    key: {
+      event_type: 1,
+      ts: -1
+    },
+    name: 'idx_type_ts'
+  }
+]
+{
+  collection: 'audit_events',
+  count: 100002,
+  data_bytes: 17103473,
+  storage_bytes: 6066176,
+  index_bytes: 5681152
+}
+INDEXES: kyc_profiles
+[
+  {
+    v: 2,
+    key: {
+      _id: 1
+    },
+    name: '_id_'
+  },
+  {
+    v: 2,
+    key: {
+      borrower_id: 1
+    },
+    name: 'uq_borrower_id',
+    unique: true
+  }
+]
+{
+  collection: 'kyc_profiles',
+  count: 5000,
+  data_bytes: 2266929,
+  storage_bytes: 684032,
+  index_bytes: 315392
+}
+INDEXES: login_sessions
+[
+  {
+    v: 2,
+    key: {
+      _id: 1
+    },
+    name: '_id_'
+  },
+  {
+    v: 2,
+    key: {
+      created_at: 1
+    },
+    name: 'ttl_session_1h',
+    expireAfterSeconds: 3600
+  }
+]
+{
+  collection: 'login_sessions',
+  count: 2,
+  data_bytes: 176,
+  storage_bytes: 24576,
+  index_bytes: 28672
+}
+true
+Atlas atlas-wnjnv7-shard-0 [primary] lendbride_nosql>
