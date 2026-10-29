@@ -1,0 +1,31 @@
+{
+  "captured_at": {
+    "$date": "2026-10-29T22:10:08.879Z"
+  },
+  "topology": {
+    "setName": "atlas-wnjnv7-shard-0",
+    "primary": "ac-mpldfsg-shard-00-02.bnh1svl.mongodb.net:27017",
+    "hosts": [
+      "ac-mpldfsg-shard-00-00.bnh1svl.mongodb.net:27017",
+      "ac-mpldfsg-shard-00-01.bnh1svl.mongodb.net:27017",
+      "ac-mpldfsg-shard-00-02.bnh1svl.mongodb.net:27017"
+    ]
+  },
+  "read_preference": "secondary",
+  "read_concern": "majority",
+  "documents": [
+    {
+      "_id": "p5-majority-demo-01",
+      "event_type": "repayment_received",
+      "loan_id": 100,
+      "amount": {
+        "$numberDecimal": "56000.00"
+      },
+      "currency": "NGN",
+      "note": "Portfolio 5 cloud replication demonstration",
+      "created_at": {
+        "$date": "2026-10-29T22:06:41.231Z"
+      }
+    }
+  ]
+}
