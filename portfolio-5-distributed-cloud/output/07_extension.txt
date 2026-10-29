@@ -1,0 +1,66 @@
+﻿BEGIN
+CREATE TABLE
+DO
+INSERT 0 200000
+COMMIT
+ANALYZE
+     dataset      |  rows  |  total_amount  
+------------------+--------+----------------
+ four partitions  | 200000 | 11200000000.00
+ eight partitions | 200000 | 11200000000.00
+(2 rows)
+
+    partition_name     | rows  
+-----------------------+-------
+ lb_p5.repayments_8_p0 | 24960
+ lb_p5.repayments_8_p1 | 25228
+ lb_p5.repayments_8_p2 | 25256
+ lb_p5.repayments_8_p3 | 24784
+ lb_p5.repayments_8_p4 | 25184
+ lb_p5.repayments_8_p5 | 24664
+ lb_p5.repayments_8_p6 | 24780
+ lb_p5.repayments_8_p7 | 25144
+(8 rows)
+
+ count 
+-------
+     4
+(1 row)
+
+ count 
+-------
+     4
+(1 row)
+
+FOUR PARTITIONS
+                                                              QUERY PLAN                                                               
+---------------------------------------------------------------------------------------------------------------------------------------
+ Bitmap Heap Scan on repayments_p1 repayments_by_loan  (cost=4.32..19.35 rows=4 width=55) (actual time=0.391..0.569 rows=4.00 loops=1)
+   Recheck Cond: (loan_id = 100)
+   Heap Blocks: exact=4
+   Buffers: shared hit=6 dirtied=4
+   ->  Bitmap Index Scan on repayments_p1_pkey  (cost=0.00..4.32 rows=4 width=0) (actual time=0.049..0.049 rows=4.00 loops=1)
+         Index Cond: (loan_id = 100)
+         Index Searches: 1
+         Buffers: shared hit=2
+ Planning Time: 0.232 ms
+ Execution Time: 0.670 ms
+(10 rows)
+
+EIGHT PARTITIONS
+                                                                QUERY PLAN                                                                 
+-------------------------------------------------------------------------------------------------------------------------------------------
+ Bitmap Heap Scan on repayments_8_p1 repayments_by_loan_8  (cost=4.32..18.94 rows=4 width=55) (actual time=0.070..0.077 rows=4.00 loops=1)
+   Recheck Cond: (loan_id = 100)
+   Heap Blocks: exact=4
+   Buffers: shared hit=6
+   ->  Bitmap Index Scan on repayments_8_p1_pkey  (cost=0.00..4.32 rows=4 width=0) (actual time=0.014..0.014 rows=4.00 loops=1)
+         Index Cond: (loan_id = 100)
+         Index Searches: 1
+         Buffers: shared hit=2
+ Planning:
+   Buffers: shared hit=12
+ Planning Time: 0.275 ms
+ Execution Time: 0.097 ms
+(12 rows)
+
