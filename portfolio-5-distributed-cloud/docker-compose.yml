@@ -1,0 +1,47 @@
+name: lendbridge-p5
+
+services:
+  primary:
+    image: postgres:18
+    container_name: lendbridge-pg-primary
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: lendbridge_demo_only
+      POSTGRES_DB: lendbridge_db
+      PGDATA: /var/lib/postgresql/18/docker
+    ports:
+      - "127.0.0.1:5433:5432"
+    volumes:
+      - primary_data:/var/lib/postgresql
+      - ./primary-init/01_replication.sh:/docker-entrypoint-initdb.d/01_replication.sh:ro
+    command: ["postgres", "-c", "wal_level=replica", "-c", "max_wal_senders=10", "-c", "max_replication_slots=10", "-c", "max_slot_wal_keep_size=1GB", "-c", "hot_standby=on"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d lendbridge_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
+  replica:
+    image: postgres:18
+    container_name: lendbridge-pg-replica
+    environment:
+      PGDATA: /var/lib/postgresql/18/docker
+      PGPASSWORD: lendbridge_replication_demo
+    ports:
+      - "127.0.0.1:5434:5432"
+    volumes:
+      - replica_data:/var/lib/postgresql
+      - ./replica-entrypoint.sh:/replica-entrypoint.sh:ro
+    entrypoint: ["bash", "/replica-entrypoint.sh"]
+    depends_on:
+      primary:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d lendbridge_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
+volumes:
+  primary_data:
+  replica_data:
