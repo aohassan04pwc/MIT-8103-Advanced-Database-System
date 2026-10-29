@@ -1,0 +1,20 @@
+﻿ pg_is_in_recovery 
+-------------------
+ f
+(1 row)
+
+ transaction_read_only 
+-----------------------
+ off
+(1 row)
+
+ id |              note               
+----+---------------------------------
+  1 | baseline marker
+  2 | written while replay paused
+  3 | synchronous replica available
+  4 | synchronous replica unavailable
+ 36 | write after manual promotion
+(5 rows)
+
+Manual recovery elapsed: 181.77 seconds, including manual steps and screenshot pauses. No loss observed among the four pre-failover markers. Old primary remains stopped.
