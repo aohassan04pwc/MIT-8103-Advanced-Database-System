@@ -1,0 +1,7 @@
+"QUERY PLAN"
+"Index Scan using uq_repayments_idempotency_key on repayments  (cost=0.42..8.44 rows=1 width=31) (actual time=0.050..0.051 rows=1.00 loops=1)"
+"  Index Cond: ((idempotency_key)::text = 'IDEM-1001-1'::text)"
+"  Index Searches: 1"
+"  Buffers: shared hit=4"
+"Planning Time: 0.189 ms"
+"Execution Time: 0.071 ms"

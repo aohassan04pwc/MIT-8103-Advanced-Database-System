@@ -1,0 +1,152 @@
+// ==============================================================================
+// LendBridge Relational Database Model (DBML)
+// MIT Advanced Database Systems - Portfolio 1
+// Compatible with: https://dbdiagram.io
+// ==============================================================================
+
+Project LendBridge {
+  database_type: 'PostgreSQL'
+  Note: '''
+    # LendBridge MSME Lending Database Design
+    Authoritative relational database model for working capital lending,
+    snapshot contract terms, atomic disbursements, and concurrency-safe payment allocations.
+  '''
+}
+
+// ------------------------------------------------------------------------------
+// TABLE GROUP: Customer & Identity
+// ------------------------------------------------------------------------------
+Table borrowers {
+  borrower_id bigint [pk, increment, note: 'Surrogate identity primary key']
+  first_name varchar(50) [not null]
+  last_name varchar(50) [not null]
+  business_name varchar(100) [not null]
+  email varchar(255) [unique, not null, note: 'Stored in lowercase, enforced by check constraint']
+  phone varchar(20) [unique, not null, note: 'E.164 phone format']
+  created_at timestamptz [not null, default: `current_timestamp`]
+
+  Note: 'Authoritative customer records for LendBridge micro and small business borrowers.'
+}
+
+Table kyc_records {
+  kyc_id bigint [pk, increment]
+  borrower_id bigint [not null, ref: > borrowers.borrower_id]
+  document_type varchar(50) [not null, note: 'NIN, BVN, CAC_CERT, etc.']
+  document_reference varchar(100) [not null]
+  status varchar(20) [not null, default: 'PENDING', note: 'PENDING, VERIFIED, or REJECTED']
+  submitted_at timestamptz [not null, default: `current_timestamp`]
+  decided_at timestamptz [note: 'Required if VERIFIED or REJECTED; NULL if PENDING']
+
+  Note: 'KYC identity verification artifacts supporting credit applications.'
+}
+
+// ------------------------------------------------------------------------------
+// TABLE GROUP: Credit Products & Applications
+// ------------------------------------------------------------------------------
+Table loan_products {
+  product_id bigint [pk, increment]
+  product_name varchar(100) [unique, not null]
+  min_amount numeric(19,2) [not null, note: 'Must be > 0']
+  max_amount numeric(19,2) [not null, note: 'Must be >= min_amount']
+  term_months integer [not null, note: 'Bounds: 1 to 12 months']
+  flat_rate numeric(7,6) [not null, note: 'Fractional flat interest e.g., 0.060000 = 6%']
+  active boolean [not null, default: true]
+
+  Note: 'Commercial catalog defining eligible loan amounts, terms, and flat interest rates.'
+}
+
+Table loan_applications {
+  application_id bigint [pk, increment]
+  borrower_id bigint [not null, ref: > borrowers.borrower_id]
+  product_id bigint [not null, ref: > loan_products.product_id]
+  approved_kyc_id bigint [ref: >? kyc_records.kyc_id, note: 'Mandatory audit trace for APPROVED status']
+  requested_amount numeric(19,2) [not null, note: 'Must be > 0 and within product limits']
+  purpose text [not null]
+  status varchar(20) [not null, default: 'SUBMITTED', note: 'SUBMITTED, APPROVED, or REJECTED']
+  submitted_at timestamptz [not null, default: `current_timestamp`]
+  decided_at timestamptz
+  decision_reason text
+
+  Note: 'Credit applications submitted by borrowers and underwritten by credit officers.'
+}
+
+// ------------------------------------------------------------------------------
+// TABLE GROUP: Contracts & Repayment Schedules
+// ------------------------------------------------------------------------------
+Table loans {
+  loan_id bigint [pk, increment]
+  application_id bigint [unique, not null, ref: - loan_applications.application_id, note: '1-to-1 relationship with approved application']
+  loan_reference varchar(50) [unique, not null]
+  principal numeric(19,2) [not null, note: 'Snapshot principal frozen at disbursement']
+  flat_rate numeric(7,6) [not null, note: 'Snapshot rate frozen at disbursement']
+  term_months integer [not null, note: 'Snapshot term frozen at disbursement']
+  disbursed_at timestamptz [not null, default: `current_timestamp`]
+
+  Note: 'Contractual debt agreements with frozen snapshot terms to guarantee immutability.'
+}
+
+Table instalments {
+  instalment_id bigint [pk, increment]
+  loan_id bigint [not null, ref: > loans.loan_id]
+  instalment_no integer [not null, note: '1-indexed calendar milestone']
+  due_date date [not null]
+  principal_due numeric(19,2) [not null]
+  interest_due numeric(19,2) [not null]
+  total_due numeric(19,2) [not null, note: 'Generated stored column: principal_due + interest_due']
+
+  indexes {
+    (loan_id, instalment_no) [unique]
+  }
+
+  Note: 'Scheduled contractual repayment milestones. Final instalment absorbs rounding residuals.'
+}
+
+// ------------------------------------------------------------------------------
+// TABLE GROUP: Receipts & Ledger Allocations
+// ------------------------------------------------------------------------------
+Table repayments {
+  repayment_id bigint [pk, increment]
+  loan_id bigint [not null, ref: > loans.loan_id]
+  provider_reference varchar(100) [unique, not null, note: 'External payment processor transaction ID']
+  idempotency_key varchar(100) [unique, not null, note: 'Client retry idempotency token']
+  amount numeric(19,2) [not null, note: 'Confirmed received cash amount in NGN']
+  received_at timestamptz [not null, default: `current_timestamp`]
+
+  Note: 'Confirmed inbound cash receipts recorded from simulated payment gateway callbacks.'
+}
+
+Table repayment_allocations {
+  repayment_id bigint [not null, ref: > repayments.repayment_id]
+  instalment_id bigint [not null, ref: > instalments.instalment_id]
+  allocated_amount numeric(19,2) [not null, note: 'Kobo amount applied to satisfy instalment due']
+  allocated_at timestamptz [not null, default: `current_timestamp`]
+
+  indexes {
+    (repayment_id, instalment_id) [pk]
+  }
+
+  Note: 'Resolves the M:N relationship between payment receipts and scheduled instalments.'
+}
+
+// ------------------------------------------------------------------------------
+// TABLE GROUPS FOR VISUAL CLARITY IN DBDiagram.io
+// ------------------------------------------------------------------------------
+TableGroup IdentityAndBorrowers {
+  borrowers
+  kyc_records
+}
+
+TableGroup CreditUnderwriting {
+  loan_products
+  loan_applications
+}
+
+TableGroup LoanServicing {
+  loans
+  instalments
+}
+
+TableGroup PaymentLedger {
+  repayments
+  repayment_allocations
+}

@@ -1,0 +1,7 @@
+\set loan random(1,10)
+\set direction random(0,1)
+\set cents random(1,100)
+\set src 2 * :loan - 1 + :direction
+\set dst 2 * :loan - :direction
+SELECT lb_p3.reallocate_payment(:loan,:src,:dst,:cents::numeric/100,
+ 'pgb-ordered-'||gen_random_uuid()::text);

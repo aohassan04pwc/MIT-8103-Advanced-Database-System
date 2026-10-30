@@ -1,0 +1,8 @@
+"QUERY PLAN"
+"Seq Scan on repayments  (cost=0.00..5231.00 rows=200000 width=55) (actual time=1.730..86.614 rows=200000.00 loops=1)"
+"  Filter: ((received_at >= '2024-01-01 01:00:00+01'::timestamp with time zone) AND (received_at < '2026-01-01 01:00:00+01'::timestamp with time zone))"
+"  Buffers: shared read=2231"
+"Planning:"
+"  Buffers: shared hit=135 read=22"
+"Planning Time: 26.601 ms"
+"Execution Time: 99.047 ms"

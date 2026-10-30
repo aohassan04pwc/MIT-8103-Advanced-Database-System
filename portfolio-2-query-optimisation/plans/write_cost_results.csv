@@ -1,0 +1,7 @@
+"trial","execution_order","variant","rows_inserted","elapsed_ms","total_size_bytes","total_size"
+1,1,"No extra indexes",200000,195.200,18300928,"17 MB"
+1,2,"Three extra indexes",200000,2331.972,46997504,"45 MB"
+2,1,"Three extra indexes",200000,1980.618,46997504,"45 MB"
+2,2,"No extra indexes",200000,320.104,18300928,"17 MB"
+3,1,"No extra indexes",200000,196.113,18300928,"17 MB"
+3,2,"Three extra indexes",200000,2035.995,46997504,"45 MB"

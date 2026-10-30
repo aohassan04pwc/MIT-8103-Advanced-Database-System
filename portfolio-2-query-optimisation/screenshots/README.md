@@ -1,0 +1,1 @@
+Capture: 01_benchmark_counts.png; representative before/after query plans; index list and sizes; planner selectivity comparison; write-cost timings; Q6/Q7 audit results; Q9 fan-out results. Show query and readable output. Raw complete plans belong in plans/.
